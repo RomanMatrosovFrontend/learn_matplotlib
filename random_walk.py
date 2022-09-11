@@ -17,13 +17,8 @@ class RandomWalk():
         while len(self.x_values) < self.num_points:
 
             # Определить направление и длину перемещения
-            x_direction = choice([1, -1])
-            x_distance = choice([0, 1, 2, 3, 4, 5])
-            x_step = x_direction * x_distance
-
-            y_direction = choice([1, -1])
-            y_distance = choice([0, 1, 2, 3, 4, 5])
-            y_step = y_direction * y_distance
+            x_step = self._get_step()
+            y_step = self._get_step()
 
             # Отклонение нулевых перемещений
             if x_step == 0 and y_step == 0:
@@ -35,3 +30,7 @@ class RandomWalk():
 
             self.x_values.append(x)
             self.y_values.append(y)
+
+    def _get_step(self, direction=[-1, 1], distance=[1, 2, 3, 4, 5]):
+        """Возвращает длину и направление шага"""
+        return choice(direction) * choice(distance)

@@ -5,7 +5,7 @@ from random_walk import RandomWalk
 
 while True:
     # Построение случайного блуждания
-    rw = RandomWalk(1000)
+    rw = RandomWalk(5000)
     rw.fill_walk()
 
     # Нанесение точек на диаграмму
@@ -17,10 +17,10 @@ while True:
     ax.set_ylabel('y', fontsize=12)
 
     point_numbers = range(rw.num_points)
-    ax.scatter(rw.x_values, rw.y_values, s=25, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none')
+    ax.plot(rw.x_values, rw.y_values, linewidth='1', c='blue')
 
-    ax.scatter(0, 0, s=50, c='green', edgecolors='none')
-    ax.scatter(rw.x_values[-1], rw.y_values[-1], s=50, c='red', edgecolors='none')
+    ax.scatter(0, 0, s=100, c='green', edgecolors='none')
+    ax.scatter(rw.x_values[-1], rw.y_values[-1], s=100, c='red', edgecolors='none')
 
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
