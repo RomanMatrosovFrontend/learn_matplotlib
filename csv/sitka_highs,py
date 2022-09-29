@@ -1,4 +1,6 @@
 import csv
+from matplotlib import pyplot as plt
+from datetime import datetime
 
 filename = "sitka.csv"
 
@@ -12,4 +14,15 @@ with open(filename) as f:
         high = int(row[5])
         highs.append(high)
 
-    print(highs)
+#Нанесение данных на диаграмму
+plt.style.use('seaborn')
+fig, ax = plt.subplots()
+ax.plot(highs, c="red")
+
+#Форматирование диаграммы
+plt.title("Daily heigh temperatures, July 2018", fontsize=24)
+plt.xlabel("", fontsize=18)
+plt.ylabel("Temperature", fontsize=18)
+plt.tick_params(axis="both", which="major", labelsize=15)
+
+plt.show()
